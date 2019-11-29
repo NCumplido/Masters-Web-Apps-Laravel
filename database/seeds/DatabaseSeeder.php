@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // Note: Careful with the order of these, they reference each other (one to many etc).
         $this->call(UserTableSeeder::class);
         $this->call(BlogpostTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
     }
 }
