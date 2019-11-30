@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
 
-<head>
 
-  <title>Look at all those blogposts!</title>
+@extends('layouts.app')
 
-</head>
+@section('title', 'BlogPosts')
 
-<body>
+@section('content')
 
-    <h1>{{$blogpost}}</h1>
+<h2>Look at all those blogposts! </h2>
 
-</body>
+    <p>{{$blogpost}}</p>
 
-</html>
+@endsection
