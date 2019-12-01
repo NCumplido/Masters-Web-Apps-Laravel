@@ -15,6 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/blogposts/{blogpost}', function ($blogpost) {
-    return view('blogposts', ['blogpost' => $blogpost]);
-});
+Route::get('/blogposts/', 'BlogPostController@index');
+
