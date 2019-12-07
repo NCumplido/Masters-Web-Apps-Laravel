@@ -84,6 +84,8 @@
                     Laravel
                 </div>
 
+                <a href="{{ route('users.create')}}">Create user</a>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

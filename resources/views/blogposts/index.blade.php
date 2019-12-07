@@ -9,11 +9,20 @@
 
         @foreach ($blogposts as $blogpost)
 
-            /n
+        <div style="text-align: left;"><strong>{{$blogpost->creator}}</strong>&nbsp; &nbsp;
+                            &nbsp;&nbsp;<strong>{{$blogpost->email}}</strong></div>
 
-            <div> {{$blogpost->creator}} </div> 
-            
-            <li>{{$blogpost->content}}</li>
+<ul>
+<li>{{$blogpost->topic}}</li>
+</ul>
+<div>&nbsp;</div>
+<ul>
+<li>{{$blogpost->content}}</li>
+<li>Time created: {{$blogpost->post_created_at ?? 'Unknown' }}</li>
+<li>{{$blogpost->votes}}</li>
+</ul>
+
+<p>&nbsp;</p>
 
         @endforeach
     
@@ -21,3 +30,6 @@
 
     
 @endsection
+
+#Blank divs to create space and improve readability on web page.
+#Lecture 10 @23:18 for photos routes, then look for more routes for more features.

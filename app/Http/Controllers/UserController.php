@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\BlogPost;
 use Illuminate\Http\Request;
 
-class BlogPostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,9 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $blogPosts = BlogPost::all();
+        $users = User::all();
 
-        return view('blogposts.index', ['blogposts' => $blogPosts]);
+        return view('users.index', ['users' => $users]);
     }
 
     /**
@@ -26,7 +25,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -47,12 +46,9 @@ class BlogPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-{
-
-    $blogPost = BlogPost::findOrFail($id);
-
-    return view('blogposts.show', ['blogPosts' => $blogPost]);
-}
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

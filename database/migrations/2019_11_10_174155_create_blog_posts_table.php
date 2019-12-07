@@ -21,6 +21,8 @@ class CreateBlogPostsTable extends Migration
             $table->string('content');
             $table->integer('votes');
             $table->string('topic');
+            $table->timestamp('post_created_at')->nullable();
+
             /**
              * @todo Include attribute time created
              */ 
