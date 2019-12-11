@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BlogPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogPostController extends Controller
 {
@@ -15,6 +16,8 @@ class BlogPostController extends Controller
     public function index()
     {
         $blogPosts = BlogPost::all();
+
+        $blogPosts = DB::table('blog')->paginate(15);
 
         return view('blogposts.index', ['blogposts' => $blogPosts]);
     }
