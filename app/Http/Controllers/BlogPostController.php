@@ -17,9 +17,10 @@ class BlogPostController extends Controller
     {
         $blogPosts = BlogPost::all();
 
-        $blogPosts = DB::table('blog')->paginate(15);
+        //This is where I would paginate all of the blogposts
 
         return view('blogposts.index', ['blogposts' => $blogPosts]);
+
     }
 
     /**
@@ -51,10 +52,10 @@ class BlogPostController extends Controller
      */
     public function show($id)
 {
-
     $blogPost = BlogPost::findOrFail($id);
 
     return view('blogposts.show', ['blogPosts' => $blogPost]);
+
 }
 
     /**

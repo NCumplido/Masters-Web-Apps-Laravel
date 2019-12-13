@@ -6,6 +6,13 @@
 
         <title>Laravel</title>
 
+        <h1>
+            
+            <a href="{{route ('users.create')}}">Register</a>
+            
+           {{-- <a href="https://github.com/laravel/laravel">GitHub</a> --}}
+        </h1>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -79,8 +86,6 @@
                 </div>
             @endif
 
-            
-            <a href="https://github.com/laravel/laravel">GitHub</a>
 
             <div class="content">
                 <div class="title m-b-md">

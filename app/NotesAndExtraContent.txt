@@ -1,0 +1,8 @@
+
+
+            Here are some notes about web application development in Laravel that aren't in the slides:
+
+1, Laravel Honeypot: This can be used an as alternative to captchas, it involves a hidden input box on a page where a user would sign up. 
+    Bots would fill that box with info that's relevant to the box's name, if it is filled out then you know it is a bot.
+
+2, Be aware of buffer overflow, can be damaging.

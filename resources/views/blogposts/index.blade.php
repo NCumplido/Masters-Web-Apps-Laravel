@@ -4,20 +4,25 @@
 
 @section('content')
     <p>BlogPosts from the index view </p>
+
+    <h1><a href="{{ route('users.index') }}">Users</a></h1>
     
     <ul>
 
         @foreach ($blogposts as $blogpost)
 
-        <div style="text-align: left;"><strong>{{$blogpost->creator}}</strong>&nbsp; &nbsp;
-                            &nbsp;&nbsp;<strong>{{$blogpost->email}}</strong></div>
+        <div style="text-align: left;">
+            <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}">
+                {{$blogpost->creator}}{{$blogpost->email}}
+        </div>
 
 <ul>
 <li>{{$blogpost->topic}}</li>
 </ul>
 <div>&nbsp;</div>
 <ul>
-<li>{{$blogpost->content}}</li>
+<li> {{$blogpost->content}}</li>
+
 <li>Time created: {{$blogpost->post_created_at ?? 'Unknown' }}</li>
 <li>{{$blogpost->votes}}</li>
 </ul>
