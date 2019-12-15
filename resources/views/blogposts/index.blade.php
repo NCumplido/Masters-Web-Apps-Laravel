@@ -3,9 +3,12 @@
 @section('title', 'Blogposts')
 
 @section('content')
-    <p>BlogPosts from the index view </p>
 
-    <h1><a href="{{ route('users.index') }}">Users</a></h1>
+    <h1><a href="{{route ('home')}}">Home</a></h1>
+
+    <p> </p>
+
+    <p>BlogPosts from the index view </p>
     
     <ul>
 

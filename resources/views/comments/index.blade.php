@@ -3,6 +3,9 @@
 @section('title', 'comments')
 
 @section('content')
+
+    <h1><a href="{{route ('home')}}">Home</a></h1>
+
     <p>Comments from the index view </p>
     
     <ul>

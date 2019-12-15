@@ -9,6 +9,19 @@
         <h1>
             
             <a href="{{route ('users.create')}}">Register</a>
+
+            <p> </p>
+
+            <a href="{{route ('users.index')}}">Users</a>
+
+            <p> </p>
+
+            <a href="{{route ('blogposts.index')}}">Blog posts</a>
+
+            <p> </p>
+
+            <a href="{{route ('comments.index')}}">Comments</a>
+
             
            {{-- <a href="https://github.com/laravel/laravel">GitHub</a> --}}
         </h1>
