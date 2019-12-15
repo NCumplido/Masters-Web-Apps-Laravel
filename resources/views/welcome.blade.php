@@ -12,6 +12,10 @@
 
             <p> </p>
 
+            <a href="{{route ('blogposts.create')}}">Make a post</a>
+
+            <p> </p>
+
             <a href="{{route ('users.index')}}">Users</a>
 
             <p> </p>

@@ -30,7 +30,8 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('blogposts.createBlogPost');
     }
 
     /**
@@ -41,7 +42,36 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                //dd($request['title']);
+        // Id like to request more: dd($request->all()); 
+
+        $validatedData = $request->validate([
+
+            //ToDo: Add 'password' 
+            'creator' => 'required|max:30',
+            'email' => 'required',
+            'content' => 'required',
+            'votes' => 'required|integer',
+            'topic' => 'required',
+
+        ]);
+
+        //return "Passed Validation"; 
+
+        $bp = new BlogPost;
+        $bp->creator = $validatedData['creator'];
+        $bp->email = $validatedData['email'];
+        $bp->content = $validatedData['content'];
+        $bp->votes = $validatedData['votes'];
+        $bp->topic = $validatedData['topic'];
+
+        //ToDo: $u->sanitize(); ??
+
+        $bp->save();
+                                //ToDo: Make message dynamic
+        session()->flash('message', 'BlogPost created.');
+
+        return redirect()->route('blogposts.index');
     }
 
     /**

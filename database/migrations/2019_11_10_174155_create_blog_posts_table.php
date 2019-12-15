@@ -30,9 +30,7 @@ class CreateBlogPostsTable extends Migration
 
              $table->foreign('user_id')->references('id')->on('users')
                     ->onDelete('cascade')->onUpdate('cascade');
-
-
-            
+                    
             $table->timestamps();
         });
     }
