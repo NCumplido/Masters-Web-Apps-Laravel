@@ -82,3 +82,9 @@ Route::delete('comments/{id}', function($id) {
 });
 
 Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
+
+                //******************************************Auth*************************************************
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

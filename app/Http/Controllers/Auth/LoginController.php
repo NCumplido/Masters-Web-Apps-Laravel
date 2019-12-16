@@ -18,7 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers; 
 
 //************** Redirect users to certain views depending on role/authorisation: if adomin return adminview etc */
     /**
