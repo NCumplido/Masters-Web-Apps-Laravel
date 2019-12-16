@@ -20,8 +20,16 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+//************** Redirect users to certain views depending on role/authorisation: if adomin return adminview etc */
     /**
-     * Where to redirect users after login.
+     * 
+     *                                  Lecturer: Can edit student grade return True
+     *                                  Student: Can edit student grade  return False
+     * 
+     *                                  Claims based system, I'm allowed to "fake claims"
+     * 
+     *                                  Where to redirect users after login.
+     *                                  Could use an external API, for something: Google/Twitter as mentioned in lecture 12 27:00
      *
      * @var string
      */
