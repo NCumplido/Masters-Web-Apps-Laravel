@@ -17,7 +17,9 @@
 
 Route::get('/', function () { 
     return view('welcome'); 
-})->name('home');
+})
+//->middleware('polite'); ->middleware('auth'); could also be appended
+->name('home');
 
                 //******************************************Users*************************************************
 
@@ -43,9 +45,9 @@ Route::get('/users/{id}', 'UserController@show') -> name('users.show');
 
 Route::get('/blogposts', 'BlogPostController@index')->name('blogposts.index');
 
-Route::get('/blogposts/create', 'BlogPostController@create')->name('blogposts.create');
+Route::get('/blogposts/create', 'BlogPostController@create')->name('blogposts.create')->middleware('auth');
 
-Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store');
+Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store')->middleware('auth');
 
 Route::get('/blogposts/{id}/edit', 'BlogPostController@edit')->name('blogposts.edit');
 
@@ -67,11 +69,11 @@ Route::get('/blogposts/{id}', 'BlogPostController@show') -> name('blogposts.show
 
 Route::get('comments', 'CommentController@index')->name('comments.index');
 
-Route::get('/comments/create', 'CommentController@create')->name('comments.create');
+Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
 
-Route::post('/comments', 'CommentController@store')->name('comments.store');
+Route::post('/comments', 'CommentController@store')->name('comments.store')->middleware('auth');
 
-Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit');
+Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit')->middleware('auth');
 
 Route::put('comments/{id}', function($id) { 
     //CommentController@update
@@ -88,3 +90,5 @@ Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

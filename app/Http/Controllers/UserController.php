@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.createUser');
+        //return view('users.createUser');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends Controller
         //dd($request['name']);
         // Id like to request more: dd($request->all()); 
 
-        $validatedData = $request->validate([
+        /**$validatedData = $request->validate([
 
             //ToDo: Add 'password' 
             'name' => 'required|max:30',
@@ -64,6 +64,8 @@ class UserController extends Controller
         session()->flash('message', 'User created.');
 
         return redirect()->route('users.index');
+
+        */
 
     }
 

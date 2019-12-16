@@ -35,9 +35,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
+            //************************************Need to make sure logged in users acan't ragister***********************************
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest');   
     }
 
     /**

@@ -7,7 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BlogPostController extends Controller
-{
+{    
+    /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+
+    /*public function __construct()
+    {
+        //This is whitelisting, more secure
+        //$this->middleware('auth')->except('index');           I'm using the middleware stuff it in one file: web.php 
+        
+        //or: $this->middleware('auth')->only('x', 'y',);
+    } */    
+   
     /**
      * Display a listing of the resource.
      *
