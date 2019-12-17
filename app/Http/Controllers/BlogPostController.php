@@ -62,10 +62,10 @@ class BlogPostController extends Controller
         $validatedData = $request->validate([
 
             //ToDo: Add 'password' 
-            'creator' => 'required|max:30',
-            'email' => 'required',
+            //'creator' => 'required|max:30',
+            //'email' => 'required',
             'content' => 'required',
-            'votes' => 'required|integer',
+            //'votes' => 'required|integer',
             'topic' => 'required',
 
         ]);
@@ -73,10 +73,12 @@ class BlogPostController extends Controller
         //return "Passed Validation"; 
 
         $bp = new BlogPost;
-        $bp->creator = $validatedData['creator'];
-        $bp->email = $validatedData['email'];
+        $bp->user_id = auth()->id();
+        //$bp->creator = $validatedData['creator'];
+        $bp->creator = auth()->getName();
+        $bp->email = $request->email;
         $bp->content = $validatedData['content'];
-        $bp->votes = $validatedData['votes'];
+        $bp->votes = 0;
         $bp->topic = $validatedData['topic'];
 
         //ToDo: $u->sanitize(); ??
@@ -98,7 +100,7 @@ class BlogPostController extends Controller
 {
     $blogPost = BlogPost::findOrFail($id);
 
-    return view('blogposts.show', ['blogPosts' => $blogPost]);
+    return view('blogposts.show', ['blogPost' => $blogPost]);
 
 }
 

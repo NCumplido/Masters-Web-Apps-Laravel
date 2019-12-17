@@ -8,6 +8,6 @@
 
 <h2>Look at all those blogposts! </h2>
 
-    <p>{{$blogpost}}</p>
+    {{--<p>{{$blogpost}}</p>--}}
 
 @endsection

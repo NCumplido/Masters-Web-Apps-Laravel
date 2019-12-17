@@ -11,7 +11,7 @@
 
         <li>Email: {{ $user->email }} </li>
 
-        <li>Role: {{ $user->role ?? 'Unknown'  }} </li>
+        <li>Role: {{ $user->role }} </li> {{--This was used if the attribute was unknown:  ?? 'Unknown' --}}
 
     </ul>
 

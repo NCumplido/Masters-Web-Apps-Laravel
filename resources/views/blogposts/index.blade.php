@@ -15,7 +15,16 @@
         <div style="text-align: left;">
             <strong>
                 <li> <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
-                    {{$blogpost->creator}}{{$blogpost->email}}
+                    Name: {{$blogpost->creator}}
+                    
+                    Email: {{$blogpost->email}}
+        </div>
+
+        <div style="text-align: left;">
+            <strong>
+                <li> <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
+                    
+                    Email: {{$blogpost->email}}
         </div>
 
 <ul>

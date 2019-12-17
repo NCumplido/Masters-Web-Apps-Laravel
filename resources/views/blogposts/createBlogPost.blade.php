@@ -23,19 +23,26 @@
 
         @csrf
 
-        {{--See Laravel docs for "old" helper --}}
-        {{--ToDo: This form needs work, the user shouldn't have to input everything again --}}
-        <p>Name: <input type="text" name="creator" value="{{ old('creator') }}"></p>
-
-        <p>Email: <input type="email" name="email" value="{{ old('email') }}"></p>
-        
         <p>Content: <input type="text" name="content" value="{{ old('content') }}"></p>
-
-        <p>Votes: <input type="text" name="votes" value="{{ old('votes') }}"></p>
 
         <p>Topic: <input type="text" name="topic" value="{{ old('topic') }}"></p>
 
-        {{--<p>Topic: <input type="text" name="topic" value="{{ old('topic') }}"> 
+        <input type="submit" value="Submit">
+
+        <a href="{{ route('home') }}">Cancel</a>
+    
+    </form>
+
+@endsection
+
+        {{--See Laravel docs for "old" helper --}}
+        {{--ToDo: This form needs work, the user shouldn't have to input everything again --}}
+        {{--<p>Name: <input type="text" name="creator" value="{{ old('creator') }}"></p>--}}
+        {{--<p>Email: <input type="email" name="email" value="{{ old('email') }}"></p>--}}
+        {{--<p>Votes: <input type="text" name="votes" value="{{ old('votes') }}"></p>--}}
+
+        {{--Dropdown menu
+            <p>Topic: <input type="text" name="topic" value="{{ old('topic') }}"> 
             
             http://form.guide/php-form/php-form-select.html
             http://form.guide/php-form/php-form-validation.html
@@ -50,14 +57,5 @@
               <option value="Video Games">Video Games</option>            
             </select>
         </p> --}}
-
         {{-- Change the size to 0, use this for honeypot: <p>Age: <input type="age" name="age" ></p> --}}
-
-        <input type="submit" value="Submit">
-
-        <a href="{{ route('home') }}">Cancel</a>
-    
-    </form>
-
-@endsection
               
