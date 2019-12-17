@@ -5,13 +5,18 @@
 @section('content')
 
     <ul>
-        <li>Name: {{ $blogPosts->creator }} </li>
 
-        <li>Blogpost: {{ $blogPosts->topic }} </li>
+        <li>Id: {{ $blogPost->id }} </li>
 
-        <li>Content: {{ $blogPosts->content }} </li>
+        <li>Id: {{ $blogPost->user_id }} </li>
 
-        <li>Votes: {{ $blogPosts->votes }} </li>
+        <li>Name: {{ $blogPost->creator }} </li>
+
+        <li>Blogpost: {{ $blogPost->topic }} </li>
+
+        <li>Content: {{ $blogPost->content }} </li>
+
+        <li>Votes: {{ $blogPost->votes }} </li>
 
     </ul>
 

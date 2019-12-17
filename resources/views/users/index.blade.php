@@ -6,17 +6,28 @@
 
     <p>Users from the index view </p>
 
-    <h1> <a href="{{ route('blogposts.index') }}">Blog posts</a> </h1>
-
-    
-    
+    <h1> <a href="{{ route('blogposts.index') }}">Blog posts</a> </h1>    
     
     <ul>
 
         @foreach ($users as $user)
 
-        <div style="text-align: left;"><strong><li> <a href="{{route('users.show', ['id' => $user->id]) }}"> Name: {{ $user->name }} </li> {{$user->name}}</strong>&nbsp; &nbsp;
-                            &nbsp;&nbsp;<strong>{{$user->email}}</strong></div>
+        <div style="text-align: left;">
+            <strong>
+                <li> <a href="{{route('users.show', ['id' => $user->id]) }}"> 
+                    Name: {{ $user->name }} 
+                
+                </li> 
+            
+                        </strong>&nbsp; &nbsp; &nbsp;&nbsp;
+
+                <strong>{{$user->email}}</strong>
+
+            </strong>&nbsp; &nbsp; &nbsp;&nbsp;
+
+            <strong>{{$user->role}}</strong>
+
+        </div>
 
 <ul>
 <li>{{$user->email}}</li>
