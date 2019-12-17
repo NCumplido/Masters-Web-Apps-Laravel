@@ -39,6 +39,19 @@
                             </div>
                         </div>
 
+                                {{--'Admin','Moderator', 'Contributor' 
+                        <p>Role: <input type="text" name="role" value="{{ old('role') }}"></p> --}}
+
+                        <div class="form-group row">
+
+                            <div class="col-md-6">Role
+                                <input id="role" type="text" name="role" value="{{ old('role') }}">
+
+                            </div>
+
+                            
+                        </div>
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

@@ -7,12 +7,26 @@
         <title>Laravel</title>
 
         <h1>
+
+            @if (Route::has('login'))
+            <div class="top-left links">
+                @auth
+                <a href="{{ url('/home') }}">Home</a>
+                @else
+                <a href="{{ route('login') }}">Login</a>
+
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
             
             {{--<a href="{{route ('users.create')}}">Register</a>--}}
 
             <p> </p>
 
-            <a href="{{route ('blogposts.create')}}">Make a post</a>
+            <a href="{{route ('blogposts.create')}}">Make a post </a> (Lol no, you need to login- example only)
 
             <p> </p>
 
@@ -24,7 +38,7 @@
 
             <p> </p>
 
-            <a href="{{route ('comments.index')}}">Comments</a>
+            {{--<a href="{{route ('comments.index')}}">Comments</a> --}}
 
            {{-- <a href="https://github.com/laravel/laravel">GitHub</a> --}}
         </h1>
@@ -89,19 +103,7 @@
 
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                    @else
-                    <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
             <div class="content">
                 <div class="title m-b-md">
