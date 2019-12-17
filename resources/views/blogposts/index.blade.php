@@ -7,45 +7,40 @@
     <p>Blogposts from the index view </p>
 
     <h1> <a href="{{ route('blogposts.index') }}">Blog posts</a> </h1>    
-    
-    <ul>
 
         @foreach ($blogposts as $blogpost)
+        
+        {{-- <li> User id: {{$blogpost->user_id}} </li> --}}
+    <ul>  
+        <li> 
+            Post: 
 
-        <div style="text-align: left;">
-            <strong>
-                <li> <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
-                    Name: {{$blogpost->creator}}
-                    
-                    Email: {{$blogpost->email}}
-        </div>
+            <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
+                Title: {{$blogpost->title}}  
+            </a>
+        </li>
 
-        <div style="text-align: left;">
-            <strong>
-                <li> <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
-                    
-                    Email: {{$blogpost->email}}
-        </div>
+        <li>
+            User:
 
-<ul>
-    <li>Blogpost id: {{$blogpost->id}}</li>
-    <li>User id: {{$blogpost->user_id}}</li>
-    <li>{{$blogpost->topic}}</li>
-</ul>
-<div>&nbsp;</div>
-<ul>
-<li> {{$blogpost->content}}</li>
+            <a href="{{route('users.show', ['id' => $blogpost->user_id]) }}"> 
+                Name: {{$blogpost->user->name}} 
+            </a>
+        </li>
 
-<li>Time created: {{$blogpost->post_created_at ?? 'Unknown' }}</li>
-<li>{{$blogpost->votes}}</li>
-</ul>
+        <li> Email: {{$blogpost->email}} </li>
 
-<p>&nbsp;</p>
+        <li> Topic: {{$blogpost->topic}} </li>
 
-        @endforeach
-    
+        <li> Content: {{$blogpost->content}} </li>
+
+        <li> Time created: {{$blogpost->post_created_at ?? 'Unknown' }} </li>
+
+        <li> Votes {{$blogpost->votes}} </li>
+        
     </ul>
 
+        @endforeach
     
 @endsection
 

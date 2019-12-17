@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create blogpost')
+@section('title', 'Create comment')
 
 @section('content')
 
@@ -19,7 +19,7 @@
     
 --}}
 
-    <form method="POST" action="{{ route('blogposts.store') }}">
+   {{-- <form method="POST" action="{{ route('comments.store') }}">
 
         @csrf
 
@@ -33,7 +33,7 @@
 
         <a href="{{ route('home') }}">Cancel</a>
     
-    </form>
+    </form> --}}
 
 @endsection
 

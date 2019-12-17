@@ -17,11 +17,12 @@ class CreateBlogPostsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('creator');
-            $table->string('email'); 
+            $table->string('title');
+            //$table->string('email')->nullable(); 
             $table->string('content');
             $table->integer('votes');
             $table->string('topic');
-            $table->timestamp('post_created_at')->nullable();
+            $table->timestamp('post_created_at')->nullable(); //Use this for further details about a blogpost
 
             /**
              * @todo Include attribute time created

@@ -9,9 +9,10 @@ $factory->define(BlogPost::class, function (Faker $faker) {
     return [
         
         'creator' => $faker->name(),
-        'email' => $faker->unique()->safeEmail,
+        'title' => $faker->title,
+        //'email' => $faker->unique()->safeEmail,
         'content' => $faker->text(),
-        'votes' => $faker->numberBetween(-100,100),
+        'votes' => $faker->numberBetween(-10,10),
 
         //Use this to create roles for users.
         'topic' => $faker->randomElement(['Funny','Food', 'Cats', 'Dogs', 'Video Games']), 

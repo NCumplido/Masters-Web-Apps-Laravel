@@ -59,15 +59,13 @@ Route::delete('blogposts/{id}', function($id) {
     //BlogPostController@delete
 });
 
-Route::get('/blogposts/{user}', function ($user) {
-    return view('blogpost', ['blogpost' => $user]);
-});
+//Route::get('/blogposts/{user}', function ($user) { return view('blogpost', ['blogpost' => $user]); });
 
 Route::get('/blogposts/{id}', 'BlogPostController@show') -> name('blogposts.show');
 
                 //******************************************Comments*************************************************
 
-Route::get('comments', 'CommentController@index')->name('comments.index');
+//Route::get('comments', 'CommentController@index')->name('comments.index');
 
 Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
 
@@ -75,15 +73,13 @@ Route::post('/comments', 'CommentController@store')->name('comments.store')->mid
 
 Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit')->middleware('auth');
 
-Route::put('comments/{id}', function($id) { 
-    //CommentController@update
-});
+//Route::put('comments/{id}', function($id) { //CommentController@update});
 
 Route::delete('comments/{id}', function($id) {
     //CommentController@delete
 });
 
-Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
+//Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
 
                 //******************************************Auth*************************************************
 

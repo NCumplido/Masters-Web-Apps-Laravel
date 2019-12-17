@@ -26,7 +26,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        //return view('users.createComment');
     }
 
     /**
@@ -36,8 +36,21 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $validatedData = $request->validate([
+            'content' => 'required',
+        ]);
+
+        $comment = new Comment;
+        //$comment->user_id = auth()->id();
+        $comment->blogpost_id = auth()->id();
+        $comment->creator = auth()->getName();
+        $comment->content = $validatedData['content'];
+        //ToDo: $u->sanitize(); ??
+        $comment->save();
+                        //ToDo: Make message dynamic
+        session()->flash('message', 'Comment created.');
+
     }
 
     /**
@@ -46,12 +59,12 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
         $comment = Comment::findOrFail($id);
 
         return view('comments.show', ['comment' => $comment]);
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.

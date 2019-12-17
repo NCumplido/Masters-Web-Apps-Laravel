@@ -56,27 +56,24 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-                //dd($request['title']);
+        //dd($request['title']);
         // Id like to request more: dd($request->all()); 
 
+        //$request->sanitize();
+        //$request->initialize();
+
         $validatedData = $request->validate([
-
-            //ToDo: Add 'password' 
-            //'creator' => 'required|max:30',
-            //'email' => 'required',
+            'title' => 'required',
             'content' => 'required',
-            //'votes' => 'required|integer',
             'topic' => 'required',
-
         ]);
 
         //return "Passed Validation"; 
 
         $bp = new BlogPost;
         $bp->user_id = auth()->id();
-        //$bp->creator = $validatedData['creator'];
         $bp->creator = auth()->getName();
-        $bp->email = $request->email;
+        $bp->title = $validatedData['title'];
         $bp->content = $validatedData['content'];
         $bp->votes = 0;
         $bp->topic = $validatedData['topic'];
@@ -84,7 +81,7 @@ class BlogPostController extends Controller
         //ToDo: $u->sanitize(); ??
 
         $bp->save();
-                                //ToDo: Make message dynamic
+                        //ToDo: Make message dynamic
         session()->flash('message', 'BlogPost created.');
 
         return redirect()->route('blogposts.index');

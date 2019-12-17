@@ -42,7 +42,7 @@
 
     <p> </p>
 
-    <a href="{{route ('comments.index')}}">Comments</a>
+    {{--<a href="{{route ('comments.index')}}">Comments</a>--}}
 </h1>
 
 <!-- Fonts -->

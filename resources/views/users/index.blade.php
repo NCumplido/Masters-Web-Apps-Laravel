@@ -13,28 +13,30 @@
         @foreach ($users as $user)
 
         <div style="text-align: left;">
-            <strong>
-                <li> <a href="{{route('users.show', ['id' => $user->id]) }}"> 
-                    Name: {{ $user->name }} 
-                
-                </li> 
+            <strong> 
             
-                        </strong>&nbsp; &nbsp; &nbsp;&nbsp;
+                <li>
+                <a href="{{route('users.show', ['id' => $user->id]) }}"> Id: {{$user->id}} </a>
 
-                <strong>{{$user->email}}</strong>
+                <div><div>
 
-            </strong>&nbsp; &nbsp; &nbsp;&nbsp;
+                Name: {{ $user->name }} 
+                
+                <div><div>
 
-            <strong>{{$user->role}}</strong>
+                Email: {{$user->email}}
 
-        </div>
+                <div><div>
 
-<ul>
-<li>{{$user->email}}</li>
-</ul>
-<div>&nbsp;</div>
+                Role: {{$user->role}}
 
-<p>&nbsp;</p>
+                </li>
+
+            </strong> 
+            
+            <div><div>
+
+        </div>            
 
         @endforeach
     
@@ -43,5 +45,6 @@
     
 @endsection
 
-#Blank divs to create space and improve readability on web page.
-#Lecture 10 @23:18 for photos routes, then look for more routes for more features.
+{{--Blank divs to create space and improve readability on web page.
+    Lecture 10 @23:18 for photos routes, then look for more routes for more features.
+--}}
