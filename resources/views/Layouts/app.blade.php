@@ -23,6 +23,8 @@
 <body>
   <h1>SwanBlog - @yield('title')</h1>
 
+  <h1><a href="{{route ('home')}}">Home</a></h1>
+
   @if (session('message'))
 
   {{-- ToDo: I should make this dynamic --}}

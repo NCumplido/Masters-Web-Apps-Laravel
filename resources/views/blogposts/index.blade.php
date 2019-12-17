@@ -4,8 +4,6 @@
 
 @section('content')
 
-    <h1><a href="{{route ('home')}}">Home</a></h1>
-
     <p> </p>
 
     <p>BlogPosts from the index view </p>
