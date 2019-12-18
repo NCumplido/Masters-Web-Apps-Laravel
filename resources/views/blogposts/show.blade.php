@@ -20,6 +20,10 @@
 
     </ul>
 
+    <a href="{{route('blogposts.edit', ['id' => $blogPost->id]) }}"> 
+        Edit 
+    </a>
+
     <form method="POST" action="{{route('blogposts.destroy', ['id' => $blogPost->id]) }}">
 
         @csrf

@@ -48,7 +48,9 @@ Route::get('/blogposts', 'BlogPostController@index')->name('blogposts.index');
 Route::get('/blogposts/create', 'BlogPostController@create')->name('blogposts.create')->middleware('auth');
 
 Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store')->middleware('auth');
+
                                     //********** Pay attention to ordering, /{id} 'd routes must come last */
+                                    
 Route::get('/blogposts/{id}/edit', 'BlogPostController@edit')->name('blogposts.edit');
 
 Route::put('blogposts/{id}', function($id) { 

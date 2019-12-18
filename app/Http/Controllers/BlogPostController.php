@@ -110,7 +110,6 @@ class BlogPostController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -122,7 +121,34 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $blogPost = BlogPost::findOrFail($id);
+        
+        return view('blogposts.update', ['blogPost' => $blogPost]);
+
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'topic' => 'required',
+        ]);
+
+        //return "Passed Validation"; 
+
+        $bp = new BlogPost;
+        $bp->user_id = auth()->id();
+        $bp->creator = auth()->getName();
+        $bp->title = $validatedData['title'];
+        $bp->content = $validatedData['content'];
+        $bp->votes = 0;
+        $bp->topic = $validatedData['topic'];
+
+        //ToDo: $u->sanitize(); ??
+
+        $bp->save();
+                        //ToDo: Make message dynamic
+        session()->flash('message', 'BlogPost created.');
+
+        return redirect()->route('blogposts.index');
     }
 
     /**

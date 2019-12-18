@@ -4,14 +4,17 @@
 
 @section('content')
 
-    //<li>Blogpost: {{ $comment->blogpost_id->content }} </li>
-
-    /*$comment = Comment::with('item')->where('date', $date)->get(); return view('sale.detail', compact('sales'));
-    Eager loading */
+    {{--
+    <li>Blogpost: {{ $comment->blogpost_id->content }} </li>
+    
+    Look into Eager loading 
+    --}}
 
     <ul>
 
         <li>Comment Id: {{$comment->id}}</li>
+
+        <li>BlogPost Id: {{$comment->blogpost_id}}</li>
 
         <li>Poster: {{$comment->creator}} </li> {{--Returning bad string--}}
 
@@ -19,6 +22,6 @@
 
     </ul>
 
-    <a href="{{ route('home') }}">Cancel</a>
+    <a href="{{route('blogposts.show', ['id' => $comment->blogpost_id]) }}">Cancel</a>
 
 @endsection
