@@ -13,26 +13,26 @@ class CreateBlogPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_posts', function (Blueprint $table) {
+        Schema::create('blog_posts', function (Blueprint $table) 
+        {
             $table->bigIncrements('id');
 
             $table->string('creator');
             $table->string('title');
-            //$table->string('email')->nullable(); 
+            $table->string('topic');
             $table->string('content');
             $table->integer('votes');
-            $table->string('topic');
-            $table->timestamp('post_created_at')->nullable(); //Use this for further details about a blogpost
-
-            /**
-             * @todo Include attribute time created
-             */ 
-             $table->bigInteger('user_id')->unsigned();
-
-             $table->foreign('user_id')->references('id')->on('users')
-                    ->onDelete('cascade')->onUpdate('cascade');
-                    
+            $table->timestamp('post_created_at')->nullable(); 
             $table->timestamps();
+
+            $table->bigInteger('user_id')->unsigned();
+
+            //Is this needed to set up list of comments?
+            //$table->bigInteger('comment_id')->unsigned->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onDelete('cascade')->onUpdate('cascade');
+                    
         });
     }
 

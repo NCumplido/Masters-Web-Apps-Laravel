@@ -44,6 +44,7 @@ class CommentController extends Controller
         $comment = new Comment;
         //$comment->user_id = auth()->id();
         $comment->blogpost_id = auth()->id();
+        //$table->string('blogpost_content');
         $comment->creator = auth()->getName();
         $comment->content = $validatedData['content'];
         //ToDo: $u->sanitize(); ??
@@ -59,12 +60,12 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*public function show($id)
+    public function show($id)
     {
         $comment = Comment::findOrFail($id);
 
         return view('comments.show', ['comment' => $comment]);
-    } */
+    } 
 
     /**
      * Show the form for editing the specified resource.

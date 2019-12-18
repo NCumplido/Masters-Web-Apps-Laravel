@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
 
             $table->string('creator');
             $table->string('content');
+            /*$table->string('blogpost_content'); */
             $table->timestamps();
 
             $table->bigInteger('blogpost_id')->unsigned();

@@ -13,7 +13,8 @@
 
         <div style="text-align: left;">
             <strong>
-                <li> <a href="{{route('comments.show', ['id' => $comment->id]) }}"> Creator: {{ $comment->creator }} </li> {{$comment->content}}
+                <li> <a href="{{route('comments.show', ['id' => $comment->id]) }}"> Creator: {{ $comment->creator }} </li> 
+                    {{$comment->content}}
             </strong>
         </div>
 

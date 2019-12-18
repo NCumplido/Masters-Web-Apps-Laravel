@@ -4,14 +4,21 @@
 
 @section('content')
 
+    //<li>Blogpost: {{ $comment->blogpost_id->content }} </li>
+
+    /*$comment = Comment::with('item')->where('date', $date)->get(); return view('sale.detail', compact('sales'));
+    Eager loading */
+
     <ul>
-        <li>Name: {{ $comment->creator }} </li>
 
-        <li>Content: {{ $comment->content }} </li>
+        <li>Comment Id: {{$comment->id}}</li>
 
-        <li>Blogpost: {{ $comment->blogPost_id }} </li>
+        <li>Poster: {{$comment->creator}} </li> {{--Returning bad string--}}
 
+        <li>Content: {{ $comment->content }} </li>        
 
     </ul>
+
+    <a href="{{ route('home') }}">Cancel</a>
 
 @endsection

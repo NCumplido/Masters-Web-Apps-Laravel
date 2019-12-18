@@ -13,18 +13,18 @@
         {{-- <li> User id: {{$blogpost->user_id}} </li> --}}
     <ul>  
         <li> 
-            Post: 
+            Blog post title: 
 
             <a href="{{route('blogposts.show', ['id' => $blogpost->id]) }}"> 
-                Title: {{$blogpost->title}}  
+                {{$blogpost->title}}  
             </a>
         </li>
 
         <li>
-            User:
+            Poster:
 
             <a href="{{route('users.show', ['id' => $blogpost->user_id]) }}"> 
-                Name: {{$blogpost->user->name}} 
+                Email: {{$blogpost->user->name}} 
             </a>
         </li>
 

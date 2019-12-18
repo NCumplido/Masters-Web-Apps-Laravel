@@ -12,13 +12,22 @@
 
         <li>Creator: {{ $blogPost->user->name }} </li>
 
-        <li>Blogpost: {{ $blogPost->topic }} </li>
+        <li>Topic: {{ $blogPost->topic }} </li>
 
         <li>Content: {{ $blogPost->content }} </li>
 
         <li>Votes: {{ $blogPost->votes }} </li>
 
     </ul>
+
+    <form method="POST" action="{{route('blogposts.destroy', ['id' => $blogPost->id]) }}">
+
+        @csrf
+
+        @method('DELETE')
+
+        <button type="submit">Delete</button>
+    </form>
 
     <form method="POST" action="{{ route('comments.store') }}">
 

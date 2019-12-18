@@ -48,24 +48,22 @@ Route::get('/blogposts', 'BlogPostController@index')->name('blogposts.index');
 Route::get('/blogposts/create', 'BlogPostController@create')->name('blogposts.create')->middleware('auth');
 
 Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store')->middleware('auth');
-
+                                    //********** Pay attention to ordering, /{id} 'd routes must come last */
 Route::get('/blogposts/{id}/edit', 'BlogPostController@edit')->name('blogposts.edit');
 
 Route::put('blogposts/{id}', function($id) { 
     //BlogPostController@update
 });
 
-Route::delete('blogposts/{id}', function($id) {
-    //BlogPostController@delete
-});
+Route::delete('blogposts/{id}', 'BlogPostController@destroy') ->name('blogposts.destroy');
 
-//Route::get('/blogposts/{user}', function ($user) { return view('blogpost', ['blogpost' => $user]); });
+//Route::get('/blogposts/{user}', function ($user) { return view('blogpost', ['blogpost' => $user]); }); This was for something?
 
 Route::get('/blogposts/{id}', 'BlogPostController@show') -> name('blogposts.show');
 
                 //******************************************Comments*************************************************
 
-//Route::get('comments', 'CommentController@index')->name('comments.index');
+Route::get('comments', 'CommentController@index')->name('comments.index');
 
 Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
 
@@ -79,7 +77,8 @@ Route::delete('comments/{id}', function($id) {
     //CommentController@delete
 });
 
-//Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
+//Pass the blogpoost Id here
+Route::get('comments/{id}', 'CommentController@show') -> name('comments.show');
 
                 //******************************************Auth*************************************************
 

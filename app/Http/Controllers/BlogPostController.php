@@ -93,8 +93,9 @@ class BlogPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-{
+    public function show( $id)
+{   // I attempted Model view binding, but no ( Beginning of lecture 12.)
+    
     $blogPost = BlogPost::findOrFail($id);
 
     return view('blogposts.show', ['blogPost' => $blogPost]);
@@ -132,6 +133,10 @@ class BlogPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blogPost = BlogPost::findOrFail($id);
+
+        $blogPost->delete();
+
+        return redirect()->route('blogposts.index')->with('message', 'Blogpost was deleted');
     }
 }
