@@ -24,17 +24,17 @@
             Poster:
 
             <a href="{{route('users.show', ['id' => $blogpost->user_id]) }}"> 
-                Email: {{$blogpost->user->name}} 
+                {{$blogpost->user->name}} 
             </a>
         </li>
 
-        <li> Email: {{$blogpost->email}} </li>
+        <li> Email: {{$blogpost->user->email}} </li>
 
         <li> Topic: {{$blogpost->topic}} </li>
 
         <li> Content: {{$blogpost->content}} </li>
 
-        <li> Time created: {{$blogpost->post_created_at ?? 'Unknown' }} </li>
+        {{--<li> Time created: {{$blogpost->post_created_at ?? 'Unknown' }} </li>--}}
 
         <li> Votes {{$blogpost->votes}} </li>
         
@@ -44,5 +44,4 @@
     
 @endsection
 
-#Blank divs to create space and improve readability on web page.
-#Lecture 10 @23:18 for photos routes, then look for more routes for more features.
+{{--Lecture 10 @23:18 for photos routes, then look for more routes for more features. --}}

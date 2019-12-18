@@ -20,9 +20,12 @@
 
     </ul>
 
+    {{-- Edit --}}
     <a href="{{route('blogposts.update', ['id' => $blogPost->id]) }}"> 
         Edit 
     </a>
+
+    {{-- Delete --}}
 
     <form method="POST" action="{{route('blogposts.destroy', ['id' => $blogPost->id]) }}">
 
@@ -33,11 +36,12 @@
         <button type="submit">Delete</button>
     </form>
 
+    {{-- Post comment --}}
     <form method="POST" action="{{ route('comments.store') }}">
 
         @csrf
 
-        <p>Comment: <input type="text" name="content"></p>
+        <p>Comment: <input type="text" name="content" value="{{ old('content') }}"></p>
 
         <input type="submit" value="Submit">
     
@@ -49,15 +53,19 @@
     @foreach ($comments as $comment)
     @if ($comment->blogpost_id === $blogPost->id)
 
-        <li>Comment id:
-            <a href="{{route('users.show', ['id' => $comment->id]) }}"> 
-                Name: {{$comment->creator}} 
+        <li>
+            Comment id: 
+            <a href="{{route('comments.show', ['id' => $comment->id]) }}"> 
+                {{$comment->id}} 
             </a>
         </li>
 
+        <li> Creator: {{$comment->user->creator}} </li>
+
         <li> Content: {{$comment->content}} </li>
 
-        <li> Time created: {{$comment->post_created_at ?? 'Unknown' }} </li> 
+        {{--<li> Time created: {{$comment->post_created_at ?? 'Unknown' }} </li> --}}
+
     @endif
     @endforeach
     </ul>

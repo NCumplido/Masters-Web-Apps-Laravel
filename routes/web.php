@@ -67,9 +67,9 @@ Route::get('/blogposts/{id}', 'BlogPostController@show') -> name('blogposts.show
 
 //Route::get('comments', 'CommentController@index')->name('comments.index');
 
-Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
+//Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
 
-Route::post('/comments', 'CommentController@store')->name('comments.store')->middleware('auth');
+Route::post('/comments', 'CommentController@store')->name('comments.store');//->middleware('auth');
 
 Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit')->middleware('auth');
 
