@@ -20,7 +20,7 @@
 
     </ul>
 
-    <a href="{{route('blogposts.edit', ['id' => $blogPost->id]) }}"> 
+    <a href="{{route('blogposts.update', ['id' => $blogPost->id]) }}"> 
         Edit 
     </a>
 
@@ -42,22 +42,26 @@
         <input type="submit" value="Submit">
     
     </form>
+    
+    <div> Comments </div>
 
-    {{--@foreach ($comments as $comment)
     <ul>
-        <li>
-            User:
-            <a href="{{route('users.show', ['id' => $comment->user_id]) }}"> 
+    @foreach ($comments as $comment)
+    @if ($comment->blogpost_id === $blogPost->id)
+
+        <li>Comment id:
+            <a href="{{route('users.show', ['id' => $comment->id]) }}"> 
                 Name: {{$comment->creator}} 
             </a>
         </li>
 
         <li> Content: {{$comment->content}} </li>
 
-        <li> Time created: {{$comment->post_created_at ?? 'Unknown' }} </li>
-    });
-        
+        <li> Time created: {{$comment->post_created_at ?? 'Unknown' }} </li> 
+    @endif
+    @endforeach
     </ul>
-    @endforeach--}}
+
+    <a href="{{ route('home') }}">Home</a>
 
 @endsection

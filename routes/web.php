@@ -50,8 +50,8 @@ Route::get('/blogposts/create', 'BlogPostController@create')->name('blogposts.cr
 Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store')->middleware('auth');
 
                                     //********** Pay attention to ordering, /{id} 'd routes must come last */
-                                    
-Route::get('/blogposts/{id}/edit', 'BlogPostController@edit')->name('blogposts.edit');
+
+Route::get('/blogposts/{id}/update', 'BlogPostController@update')->name('blogposts.update'); //ToDo: Authorisation goes here
 
 Route::put('blogposts/{id}', function($id) { 
     //BlogPostController@update
@@ -65,7 +65,7 @@ Route::get('/blogposts/{id}', 'BlogPostController@show') -> name('blogposts.show
 
                 //******************************************Comments*************************************************
 
-Route::get('comments', 'CommentController@index')->name('comments.index');
+//Route::get('comments', 'CommentController@index')->name('comments.index');
 
 Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
 

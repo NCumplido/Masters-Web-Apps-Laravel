@@ -12,11 +12,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Not used
     public function index()
     {
-        $comments = Comment::all();
-
-        return view('comments.index', ['comments' => $comments]);
+        //$comments = Comment::all();
+        //return view('comments.index', ['comments' => $comments]);
     }
 
     /**
@@ -42,15 +42,16 @@ class CommentController extends Controller
         ]);
 
         $comment = new Comment;
-        //$comment->user_id = auth()->id();
-        $comment->blogpost_id = auth()->id();
-        //$table->string('blogpost_content');
+        $comment->blogpost_id = 5;
         $comment->creator = auth()->getName();
         $comment->content = $validatedData['content'];
-        //ToDo: $u->sanitize(); ??
+        //ToDo: $u->sanitize(); 
         $comment->save();
                         //ToDo: Make message dynamic
         session()->flash('message', 'Comment created.');
+
+        //Would be nice to return to original blogpost
+        return redirect()->route('blogposts.index');
 
     }
 

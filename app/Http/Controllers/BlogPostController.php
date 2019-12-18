@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BlogPost;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -58,7 +59,6 @@ class BlogPostController extends Controller
     {
         //dd($request['title']);
         // Id like to request more: dd($request->all()); 
-
         //$request->sanitize();
         //$request->initialize();
 
@@ -95,10 +95,16 @@ class BlogPostController extends Controller
      */
     public function show( $id)
 {   // I attempted Model view binding, but no ( Beginning of lecture 12.)
+
+    /*
+      Get every comment from db, pass to the show view
+      have that view display all the comments related to the blogpost using the ids  
+    */
+    $comments = Comment::all();
     
     $blogPost = BlogPost::findOrFail($id);
 
-    return view('blogposts.show', ['blogPost' => $blogPost]);
+    return view('blogposts.show', ['blogPost' => $blogPost, 'comments' => $comments]);
 
 }
 
