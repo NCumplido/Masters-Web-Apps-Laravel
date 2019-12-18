@@ -21,18 +21,29 @@
     </ul>
 
     {{-- Edit --}}
-    <a href="{{route('blogposts.update', ['id' => $blogPost->id]) }}"> 
+
+    {{-- <a href="{{route('blogposts.update', ['id' => $blogPost->id]) }}"> 
         Edit 
-    </a>
+    </a> --}}
+
+    <form method="UPDATE" 
+        action="{{ route('blogposts.update', ['id' => $blogPost->id]) }}">
+
+        @csrf
+
+       @method('UPDATE')
+
+        <button type="submit">Edit</button>
+    </form>
 
     {{-- Delete --}}
 
-    <form method="POST" action="{{route('blogposts.destroy', ['id' => $blogPost->id]) }}">
+    <form method="POST" 
+        action="{{route('blogposts.destroy', ['id' => $blogPost->id]) }}">
 
         @csrf
 
         @method('DELETE')
-
         <button type="submit">Delete</button>
     </form>
 
@@ -49,26 +60,26 @@
     
     <div> Comments </div>
 
-    <ul>
+    <div>
     @foreach ($comments as $comment)
     @if ($comment->blogpost_id === $blogPost->id)
 
-        <li>
-            Comment id: 
+        <ul>
+        <li>Comment id: 
             <a href="{{route('comments.show', ['id' => $comment->id]) }}"> 
                 {{$comment->id}} 
             </a>
         </li>
 
-        <li> Creator: {{$comment->user->creator}} </li>
+        <li> Creator: {{$comment->creator}} </li>
 
         <li> Content: {{$comment->content}} </li>
 
         {{--<li> Time created: {{$comment->post_created_at ?? 'Unknown' }} </li> --}}
-
+        </ul>
     @endif
     @endforeach
-    </ul>
+    </div>
 
     <a href="{{ route('home') }}">Home</a>
 

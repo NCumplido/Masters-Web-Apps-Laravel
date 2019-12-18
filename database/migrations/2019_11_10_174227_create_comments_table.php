@@ -21,17 +21,13 @@ class CreateCommentsTable extends Migration
             /*$table->string('blogpost_content'); */
             $table->timestamps();
 
-            //$table->bigInteger('user_id')->unsigned(); 
+            $table->bigInteger('user_id')->unsigned(); 
 
             $table->bigInteger('blogpost_id')->unsigned();
 
             $table->foreign('blogpost_id')->references('id')->on('blog_posts')
-                    ->onDelete('cascade')->onUpdate('cascade');
-
-
-                    $table->string('creator');
-                    $table->string('content');
-                    $table->timestamps();         
+                    ->onDelete('cascade')->onUpdate('cascade'); 
+                            
         });
     }
 

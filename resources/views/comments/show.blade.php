@@ -16,7 +16,9 @@
 
         <li>BlogPost Id: {{$comment->blogpost_id}}</li>
 
-        <li>Poster: {{$comment->creator}} </li> {{--Returning bad string--}}
+        <li>User Id: {{$comment->user_id}}</li>
+
+        <li>User: {{$comment->creator}} </li> {{--Returning bad string--}}
 
         <li>Content: {{ $comment->content }} </li>        
 

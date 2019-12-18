@@ -11,6 +11,7 @@ $factory->define(Comment::class, function (Faker $faker) {
         'creator' => $faker->firstname(),
         'content' => $faker->text(),
         'blogpost_id'=>App\BlogPost::inRandomOrder()->first()->id,
+        'user_id'=>App\BlogPost::inRandomOrder()->first()->id,
 
     ];
 });

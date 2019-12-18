@@ -140,7 +140,7 @@ class BlogPostController extends Controller
 
         //return "Passed Validation"; 
 
-        $bp = new BlogPost;
+        $bp = update;
         $bp->user_id = auth()->id();
         $bp->creator = auth()->getName();
         $bp->title = $validatedData['title'];
