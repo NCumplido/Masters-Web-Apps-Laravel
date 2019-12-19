@@ -35,15 +35,18 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {        
+
         $validatedData = $request->validate([
             'content' => 'required',
         ]);
 
+        //dd($id); WOOOO
+
         $comment = new Comment;
         $comment->user_id = auth()->id();
-        $comment->blogpost_id = auth()->id();
+        $comment->blogpost_id = $id;
         $comment->creator = auth()->getName();
         $comment->content = $validatedData['content'];
 

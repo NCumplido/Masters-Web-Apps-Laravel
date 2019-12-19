@@ -44,7 +44,7 @@
     </form>
 
     {{-- Post comment --}}
-    <form method="POST" action="{{ route('comments.store') }}">
+    <form method="POST" action="{{ route('comments.store', ['id' => $blogPost->id]) }}">
 
         @csrf
 
