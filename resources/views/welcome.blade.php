@@ -26,7 +26,7 @@
 
             <p> </p>
 
-            <a href="{{route ('blogposts.create')}}">Make a post </a> (Lol no, you need to login- example only)
+            <a href="{{route ('blogposts.create')}}">Make a post </a> -(Login needed)
 
             <p> </p>
 
