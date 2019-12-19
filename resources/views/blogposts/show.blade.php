@@ -22,12 +22,7 @@
 
     {{-- Edit --}}
 
-    {{-- <a href="{{route('blogposts.update', ['id' => $blogPost->id]) }}"> 
-        Edit 
-    </a> --}}
-
-    <form method="UPDATE" 
-        action="{{ route('blogposts.update', ['id' => $blogPost->id]) }}">
+    <form method="GET" action="{{ route('blogposts.edit', ['id' => $blogPost->id]) }}">
 
         @csrf
 
@@ -44,6 +39,7 @@
         @csrf
 
         @method('DELETE')
+
         <button type="submit">Delete</button>
     </form>
 

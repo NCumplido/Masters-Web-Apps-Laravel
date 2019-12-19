@@ -105,7 +105,6 @@ class BlogPostController extends Controller
     $blogPost = BlogPost::findOrFail($id);
 
     return view('blogposts.show', ['blogPost' => $blogPost, 'comments' => $comments]);
-
 }
 
     /**
@@ -116,6 +115,8 @@ class BlogPostController extends Controller
      */
     public function edit($id)
     {
+        $blogPost = BlogPost::findOrFail($id);
+        return view('blogposts.edit', ['blogPost' => $blogPost]);
     }
 
     /**
@@ -127,11 +128,6 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $blogPost = BlogPost::findOrFail($id);
-        
-        return view('blogposts.update', ['blogPost' => $blogPost]);
-
         $validatedData = $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -140,9 +136,9 @@ class BlogPostController extends Controller
 
         //return "Passed Validation"; 
 
-        $bp = update;
-        $bp->user_id = auth()->id();
-        $bp->creator = auth()->getName();
+        $bp = BlogPost::findOrFail($id);
+        //$bp->user_id = auth()->id();
+        //$bp->creator = auth()->getName();
         $bp->title = $validatedData['title'];
         $bp->content = $validatedData['content'];
         $bp->votes = 0;
@@ -150,7 +146,7 @@ class BlogPostController extends Controller
 
         //ToDo: $u->sanitize(); ??
 
-        $bp->save();
+        $bp->update();
                         //ToDo: Make message dynamic
         session()->flash('message', 'BlogPost created.');
 

@@ -4,15 +4,15 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('blogposts.store') }}">
+<form method="PUT" action="{{ route('blogposts.update', ['id' => $blogPost->id]) }}">
+
+    {{--@method('UPDATE')--}}
 
     @csrf
 
     <li>BlogPost Id: {{ $blogPost->id }} </li>
-
-    <li>User id: {{ $blogPost->user_id }} </li>
-
-    <li>Creator: {{ $blogPost->user->name }} </li>
+    {{--<li>User id: {{ $blogPost->user_id }} </li>
+    <li>Creator: {{ $blogPost->user->name }} </li> --}}
 
     <p>Title: <input type="text" name="title" value="{{ old('title') }}"></p>
 
@@ -20,7 +20,7 @@
 
     <p>Topic: <input type="text" name="topic" value="{{ old('topic') }}"></p>
 
-    <li>Votes: {{ $blogPost->votes }} </li>
+    {{-- <li>Votes: {{ $blogPost->votes }} </li> --}}
 
     <input type="submit" value="Submit">
 

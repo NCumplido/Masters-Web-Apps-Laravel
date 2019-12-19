@@ -51,6 +51,8 @@ Route::post('/blogposts', 'BlogPostController@store')->name('blogposts.store')->
 
                                     //********** Pay attention to ordering, /{id} 'd routes must come last */
 
+Route::get('/blogposts/{id}/edit', 'BlogPostController@edit')->name('blogposts.edit'); //Edit first then update
+
 Route::get('/blogposts/{id}/update', 'BlogPostController@update')->name('blogposts.update'); //ToDo: Authorisation goes here
 
 Route::put('blogposts/{id}', function($id) { 
